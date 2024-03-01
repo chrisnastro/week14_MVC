@@ -1,0 +1,18 @@
+<main class="container mt-5">
+    <h1 calss="mb-4 text-white">Hockey Blog</h1>
+    <div class="row">
+        {{#each posts}}
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-hearder bg-warning">
+                    <h2 class="card-title">
+                        <a href="/post/{{id}}" class="text-dark">{{title}}</a>
+                    </h2>
+                </div>
+                <div class="card-body text-dark">
+                    <p>Author: {{user.username}} Date Posted: {{format_date createdAt}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
