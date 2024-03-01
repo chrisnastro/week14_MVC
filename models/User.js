@@ -1,5 +1,5 @@
-const { Model, DataTypes } = reqire('sequilize');
-const sequilize = require('./config/connection');
+const { Model, DataTypes } = reqire('sequelize');
+const sequelize = require('./config/connection');
 const bcryptjs = require('bcryptjs');
 
 class User extends Model {
