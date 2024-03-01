@@ -17,9 +17,43 @@ User.init(
             autoIncrement: true,
         },
         username: {
-            type: DataTypes,
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true,
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true,
+            },
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [8],
+            },
+        },
+    },
+    {
+        hooks: {
+            async preCreate(newUser) {
+                newUser.password = await bcryptjs.hash(newUser.password, 10);
+                return newUser;
+            },
+            async preUpdate(updatedUser) {
+                updatedUser.password = await bcryptjs.hash(updatedUser.password, 10);
+                return updatedUser;
+            },
+        },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'user',
     }
-)
+);
+
+module.exports = User;
