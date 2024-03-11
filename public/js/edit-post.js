@@ -24,7 +24,6 @@ const updatePost = async (event) => {
 
 const deletePost = async (event) => {
     event.preventDefault();
-
     const response = await fetch(`/api/posts/${post_id}`, {
         method: 'DELETE',
     });
@@ -32,7 +31,7 @@ const deletePost = async (event) => {
     if (response.ok) {
         document.location.replace('/dashboard');
     } else {
-        alert('Unable to delete post');
+        alert('Unable to delete');
     }
 };
 
