@@ -48,3 +48,21 @@ router.put('/:id', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+        await Comment.destroy({
+            where: { post_id: req.params.id },
+        });
+        const deletedPost = await Post.destroy({ where: { id: req.params.id }, });
+        if (!deletedPost) {
+            res.status(404).json({ message: "No post associated with ID!" });
+            return;
+        }
+        res.status(200).json(deletedPost);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;
