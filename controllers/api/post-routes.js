@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
@@ -29,6 +29,21 @@ router.get('/id', async (req, res) => {
             return;
         }
         res.status(200).json(postData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.put('/:id', withAuth, async (req, res) => {
+    try {
+        const postUpdate = await Post.update(req.body, {
+            where: { id: req.params.id },
+        });
+        if (!postUpdate) {
+            res.status(404).json({ message: "No post associated with ID!" });
+            return;
+        } res.status(200).json(postUpdate);
+
     } catch (err) {
         res.status(500).json(err);
     }
