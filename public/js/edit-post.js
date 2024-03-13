@@ -1,23 +1,23 @@
-const post_is = window.location.toString().split('/')[
-    window.location.toString().split('/').length - 1
+const post_is = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
 ];
 
 const updatePost = async (event) => {
     event.preventDefault();
-    const title = document.querySelector('#title-update-post').value.trim();
-    const content = document.querySelector('#content-update-post').value.trim();
+    const title = document.querySelector("#title-update-sw-post").value.trim();
+    const content = document.querySelector("#content-update-sw-post").value.trim();
 
     if (title && content) {
         const response = await fetch(`/api/post/${post_id}`, {
-            method: 'PUT',
+            method: "PUT",
             body: JSON.stringify({ title, content }),
-            headers: { 'Content-Type': 'application/json' },
+            headers: { "Content-Type": "application/json" },
         });
 
         if (response.ok) {
-            document.location.replace('/dashboard');
+            document.location.replace("/dashboard");
         } else {
-            alert('Unable to update');
+            alert("Unable to update");
         }
     }
 };
@@ -25,24 +25,24 @@ const updatePost = async (event) => {
 const deletePost = async (event) => {
     event.preventDefault();
     const response = await fetch(`/api/posts/${post_id}`, {
-        method: 'DELETE',
+        method: "DELETE",
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace("/dashboard");
     } else {
-        alert('Unable to delete');
+        alert("Unable to delete");
     }
 };
 
-const updatePostButton = document.querySelector('#update-post');
+const updatePostButton = document.querySelector("#update-sw-post");
 
 if (updatePostButton) {
-    updatePostButton.addEventListener('click', updatePost);
+    updatePostButton.addEventListener("click", updatePost);
 }
 
-const deletePostButton = document.querySelector('#delete-post');
+const deletePostButton = document.querySelector("#delete-sw-post");
 
 if (deletePostButton) {
-    deletePostButton.addEventListener('click', deletePost);
+    deletePostButton.addEventListener("click", deletePost);
 }

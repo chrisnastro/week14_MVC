@@ -15,9 +15,19 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        body: {
-            type: DataTypes.String,
+        content: {
+            type: DataTypes.TEXT,
             allowNull: false,
+            validate: {
+                len: [1],
+            },
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            refrences: {
+                model: "user",
+                key: "id",
+            },
         },
     },
     {

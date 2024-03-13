@@ -9,7 +9,7 @@ const hbs = exphbs.create({ helpers: require("./utils/helpers") });
 const app = express();
 const PORT = process.env.PORT || 3001;
 const sess = {
-    secret: 'secret',
+    secret: 'Super secret secret',
     cookie: {},
     resave: false,
     saveUninitialized: true,
@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.engine("handlebars", hbs.engine);
-app.set("view engines", "handlebars");
+app.set("view engine", "handlebars");
 
 app.use(session({
     secret: process.env.SECRET,
