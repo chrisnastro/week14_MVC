@@ -10,7 +10,8 @@
     {{#each posts}}
     <div class="post-container post mb-3">
         <h2><a href="post/{{id}}" class="text-decoration-none text-reset">{{title}}</a></h2>
-        <p>Author: {{user.username}} | Date: {{format_date createdAt}}</p>
+        <p>Author: {{user.username}}</p>
+        <p>Date: {{format_date createdAt}}</p>
         <a href="/editpost/{{id}}" class="btn btn-warning">Edit Post</a>
         <button class="btn btn-danger delete-post" data-post-id="{{id}}">Delete</button>
     </div>

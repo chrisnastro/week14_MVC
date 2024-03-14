@@ -1,7 +1,7 @@
 const deletePost = async (post_id) => {
     const res = await fetch(`/api/posts/${post_id}`, {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
     });
 
     if (res.ok) {
@@ -12,10 +12,10 @@ const deletePost = async (post_id) => {
 };
 
 const deletePostHandler = (event) => {
-    if (event.target.matches(".delete-post")) {
-        const post_id = event.target.getAttribute("data-post-id");
+    if (event.target.matches('.delete-post')) {
+        const post_id = event.target.getAttribute('data-post-id');
         deletePost(post_id);
     }
 };
 
-document.addEventListener("click", deletePostHandler);
+document.addEventListener('click', deletePostHandler);
