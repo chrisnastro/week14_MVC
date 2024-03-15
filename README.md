@@ -62,5 +62,9 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 
 * [GitHub Repo](https://github.com/chrisnastro/week14_MVC)
 
+## Credit
+
+CSS and some server routes from [Thomas Calle](https://github.com/ThomasCalle)
+
 ---
 © 2024 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
