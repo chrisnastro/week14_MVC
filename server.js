@@ -25,12 +25,13 @@ app.use(express.static("public"));
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-app.use(session({
-    secret: process.env.SECRET,
-    store: new SequelizeStore({ db: sequelize }),
-    resave: false,
-    saveUninitialized: false,
-})
+app.use(
+    session({
+        secret: process.env.SECRET,
+        store: new SequelizeStore({ db: sequelize }),
+        resave: false,
+        saveUninitialized: false,
+    })
 );
 
 app.use(routes);

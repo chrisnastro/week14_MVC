@@ -13,9 +13,9 @@ const commentData = [
     },
     {
         comment_text: "Do or do not, there is no try",
-        user_id: 5,
+        user_id: 3,
         post_id: 3,
-    },
+    }
 ];
 
 const seedComments = () => Comment.bulkCreate(commentData);

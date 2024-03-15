@@ -4,18 +4,18 @@ const postData = [
     {
         title: "The Empire",
         content: "Emperor passes secret new bill Order 66",
-        user_id: 4,
+        user_id: 1,
     },
     {
         title: "The Force",
         content: "A bunch of malarky is you ask me",
-        user_id: 1,
+        user_id: 2,
     },
     {
         title: "How to Build a Lightsaber",
         content: "Find a Kyber crystal you must",
-        user_id: 5,
-    },
+        user_id: 3,
+    }
 ];
 
 const seedPosts = () => Post.bulkCreate(postData);
