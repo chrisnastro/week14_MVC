@@ -8,12 +8,12 @@
 
 ## Overview
 
-Welcome to my Star Wars Blog! Please sign up to create an account and have the ability to post and comment on other posts.  Post can be edited and deleted as necessary.
+Welcome to my Star Wars Blog! Please sign up to create an account to have the ability to post and comment on other posts.  Post can be edited and deleted as necessary!
 
 ## User Story
 
 ```md
-AS A developer who writes about tech
+AS A Star Wars fan who writes about Star Wars
 I WANT a CMS-style blog site
 SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ```
@@ -58,7 +58,7 @@ THEN I am able to view posts and comments but I am prompted to log in again befo
 
 ## Submission
 
-* [Deployed application]()
+* [Deployed application](https://cn-week14-blog-16f692a05666.herokuapp.com/)
 
 * [GitHub Repo](https://github.com/chrisnastro/week14_MVC)
 
