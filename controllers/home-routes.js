@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const { Post, User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const { Post, User, Comment } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
     try {
         const postData = await Post.findAll({
             include: [{ model: User, attributes: ["username"] }]
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/post/:id', withAuth, async (req, res) => {
+router.get("/post/:id", withAuth, async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [{ model: User, attributes: ["username"] },
@@ -33,7 +33,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
     }
 });
 
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: { user_id: req.session.user_id },
@@ -48,31 +48,31 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
 });
 
-router.get('/login', (req, res) => {
+router.get("/login", (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/dashboard');
+        res.redirect("/dashboard");
         return;
     }
     res.render("login");
 });
 
-router.get('/signup', (req, res) => {
+router.get("/signup", (req, res) => {
     if (req.session.logged_in) {
-        res.redirect('/dashboard');
+        res.redirect("/dashboard");
         return;
     }
     res.render("signup");
 });
 
-router.get('/newpost', (req, res) => {
+router.get("/newpost", (req, res) => {
     if (req.session.logged_in) {
         res.render ("newpost");
         return;
     }
-    res.redidrect('/login');
+    res.redidrect("/login");
 });
 
-router.get('/editpost/:id', async (req, res) => {
+router.get("/editpost/:id", async (req, res) => {
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [

@@ -8,7 +8,7 @@ const postData = [
     },
     {
         title: "The Force",
-        content: "A bunch of malarky is you ask me",
+        content: "A bunch of malarky if you ask me",
         user_id: 2,
     },
     {
